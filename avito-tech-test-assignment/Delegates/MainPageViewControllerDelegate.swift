@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-protocol MainPageViewControllerDelegate: AnyObject{
+protocol MainPageViewControllerDelegate: AnyObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
 }
