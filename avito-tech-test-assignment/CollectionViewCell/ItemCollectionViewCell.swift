@@ -11,6 +11,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     private var image: UIImageView = {
         let img = UIImageView()
+        
         return img
     }()
     
