@@ -9,18 +9,23 @@ import Foundation
 
 class Service{
     
-    func request(urlString: String, completion: (Data?, Error?) -> Void){
-        var urlComponent = URLComponents()
-        urlComponent.scheme = "https"
-        urlComponent.host = "www.avito.st"
-        urlComponent.path = "/s/interns-ios/main-page.json"
-        
-        URLSession.shared.dataTask(with: urlComponent.url!) { data, response, error in
+    func request(urlString: String, completion: @escaping (Result<Advertisements, Error>) -> Void){
+        guard let url = URL(string: urlString) else {return}
+        URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
-                if let error = error {print("Some error")}
+                if let error = error {
+                    print("Some error")
+                    completion(.failure(error))
+                }
                 guard let data = data else {return}
-                let someString = String(data: data, encoding: .utf8)
-                print(someString ?? "no data")
+                do{
+                    let items = try JSONDecoder().decode(Advertisements.self, from: data)
+                    completion(.success(items))
+                }
+                catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                    completion(.failure(jsonError))
+                }
             }
         }.resume()
     }

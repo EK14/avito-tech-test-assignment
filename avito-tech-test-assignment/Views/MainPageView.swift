@@ -9,13 +9,13 @@ import UIKit
 
 protocol MainPageViewProtocol: UIView{
     func didLoad()
+    func reloadData()
 }
 
 class MainPageView: UIView {
     
     weak var delegate: MainPageViewControllerDelegate?
     private var collectionView: UICollectionView!
-    let service = Service()
     
     private func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
@@ -48,9 +48,7 @@ class MainPageView: UIView {
             trailingAnchor,
             bottomAnchor
         ])
-        service.request(urlString: <#T##String#>) { <#Data?#>, <#Error?#> in
-            <#code#>
-        }
+        
     }
 
     
@@ -59,5 +57,9 @@ class MainPageView: UIView {
 extension MainPageView: MainPageViewProtocol{
     func didLoad() {
         setupCollectionView()
+    }
+    
+    func reloadData(){
+        collectionView.reloadData()
     }
 }

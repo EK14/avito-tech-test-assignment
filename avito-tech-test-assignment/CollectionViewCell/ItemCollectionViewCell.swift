@@ -14,7 +14,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         return img
     }()
     
-    func setup(){
+    func setup(item: Item){
         
     }
 }
