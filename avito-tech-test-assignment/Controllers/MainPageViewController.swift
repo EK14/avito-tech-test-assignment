@@ -10,7 +10,7 @@ import UIKit
 class MainPageViewController: UIViewController {
     
     private let mainPageView: MainPageViewProtocol
-    private let service = Service()
+    private let networkDataFetcher = NetworkDataFetcher()
     var advertisements: Advertisements? = nil
 
     override func viewDidLoad() {
@@ -34,14 +34,11 @@ class MainPageViewController: UIViewController {
     
     private func networkingRequest(){
         let urlString = "https://www.avito.st/s/interns-ios/main-page.json"
-        service.request(urlString: urlString) { [weak self] (result) in
-            switch result{
-            case .success(let ads):
-                self?.advertisements = ads
-                self?.mainPageView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
+        networkDataFetcher.fetchData(urlString: urlString) { (ads) in
+            guard let ads = ads else {return}
+            self.advertisements = ads
+            self.mainPageView.reloadData()
+            print(self.advertisements)
         }
     }
     

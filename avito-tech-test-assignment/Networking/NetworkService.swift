@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Service{
+class NetworkService{
     
-    func request(urlString: String, completion: @escaping (Result<Advertisements, Error>) -> Void){
+    func request(urlString: String, completion: @escaping (Result<Data, Error>) -> Void){
         guard let url = URL(string: urlString) else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
@@ -18,14 +18,7 @@ class Service{
                     completion(.failure(error))
                 }
                 guard let data = data else {return}
-                do{
-                    let items = try JSONDecoder().decode(Advertisements.self, from: data)
-                    completion(.success(items))
-                }
-                catch let jsonError {
-                    print("Failed to decode JSON", jsonError)
-                    completion(.failure(jsonError))
-                }
+                completion(.success(data))
             }
         }.resume()
     }
