@@ -8,6 +8,12 @@
 import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
+    
+    private var image: UIImageView = {
+        let img = UIImageView()
+        return img
+    }()
+    
     func setup(){
         
     }

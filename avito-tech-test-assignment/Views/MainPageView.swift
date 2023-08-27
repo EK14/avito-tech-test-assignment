@@ -15,10 +15,12 @@ class MainPageView: UIView {
     
     weak var delegate: MainPageViewControllerDelegate?
     private var collectionView: UICollectionView!
+    let service = Service()
     
     private func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = true
@@ -26,6 +28,7 @@ class MainPageView: UIView {
         collectionView.dataSource = delegate
         collectionView.delegate = delegate
         
+        //Setting up CollectionView constraints
         let topAnchor = collectionView.topAnchor.constraint(equalTo: self.topAnchor)
         topAnchor.priority = UILayoutPriority(rawValue: 999)
         
@@ -45,6 +48,9 @@ class MainPageView: UIView {
             trailingAnchor,
             bottomAnchor
         ])
+        service.request(urlString: <#T##String#>) { <#Data?#>, <#Error?#> in
+            <#code#>
+        }
     }
 
     

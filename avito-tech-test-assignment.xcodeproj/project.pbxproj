@@ -16,6 +16,8 @@
 		3D8E32C82A9B86870064DFFC /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E32C72A9B86870064DFFC /* MainPageView.swift */; };
 		3D8E32CB2A9B87C80064DFFC /* MainPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E32CA2A9B87C80064DFFC /* MainPageViewControllerDelegate.swift */; };
 		3D96868B2A9B906400B1D45F /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D96868A2A9B906400B1D45F /* ItemCollectionViewCell.swift */; };
+		3D96868F2A9B987F00B1D45F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D96868E2A9B987F00B1D45F /* Service.swift */; };
+		3D9686922A9BA18000B1D45F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9686912A9BA18000B1D45F /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		3D8E32C72A9B86870064DFFC /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		3D8E32CA2A9B87C80064DFFC /* MainPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		3D96868A2A9B906400B1D45F /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D96868E2A9B987F00B1D45F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		3D9686912A9BA18000B1D45F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +66,13 @@
 		3D8E32AB2A98D94D0064DFFC /* avito-tech-test-assignment */ = {
 			isa = PBXGroup;
 			children = (
+				3D9686902A9BA13A00B1D45F /* Models */,
+				3D8E32C42A9B85510064DFFC /* Views */,
+				3D8E32C22A9B85240064DFFC /* Controllers */,
+				3D96868D2A9B986F00B1D45F /* Service */,
 				3D96868C2A9B912400B1D45F /* CollectionViewCell */,
 				3D8E32C92A9B87B60064DFFC /* Delegates */,
-				3D8E32C42A9B85510064DFFC /* Views */,
 				3D8E32C32A9B85430064DFFC /* Assembles */,
-				3D8E32C22A9B85240064DFFC /* Controllers */,
 				3D8E32C12A9B84E50064DFFC /* Resources */,
 				3D8E32C02A9B84C30064DFFC /* Core */,
 			);
@@ -130,6 +136,22 @@
 				3D96868A2A9B906400B1D45F /* ItemCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		3D96868D2A9B986F00B1D45F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3D96868E2A9B987F00B1D45F /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3D9686902A9BA13A00B1D45F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D9686912A9BA18000B1D45F /* Item.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8E32C62A9B85E70064DFFC /* MainPageViewControllerAssembly.swift in Sources */,
+				3D9686922A9BA18000B1D45F /* Item.swift in Sources */,
+				3D96868F2A9B987F00B1D45F /* Service.swift in Sources */,
 				3D8E32CB2A9B87C80064DFFC /* MainPageViewControllerDelegate.swift in Sources */,
 				3D8E32B12A98D94D0064DFFC /* MainPageViewController.swift in Sources */,
 				3D8E32C82A9B86870064DFFC /* MainPageView.swift in Sources */,
