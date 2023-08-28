@@ -20,33 +20,22 @@ class MainPageView: UIView {
     private func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: "item")
         collectionView.dataSource = delegate
         collectionView.delegate = delegate
         
         //Setting up CollectionView constraints
-        let topAnchor = collectionView.topAnchor.constraint(equalTo: self.topAnchor)
-        topAnchor.priority = UILayoutPriority(rawValue: 999)
-        
-        let leadingAnchor = collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        leadingAnchor.priority = UILayoutPriority(rawValue: 999)
-        
-        let trailingAnchor = collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        trailingAnchor.priority = UILayoutPriority(rawValue: 999)
-        
-        let bottomAnchor = collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        bottomAnchor.priority = UILayoutPriority(rawValue: 999)
-    
         addSubview(collectionView)
         NSLayoutConstraint.activate([
-            topAnchor,
-            leadingAnchor,
-            trailingAnchor,
-            bottomAnchor
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
     }

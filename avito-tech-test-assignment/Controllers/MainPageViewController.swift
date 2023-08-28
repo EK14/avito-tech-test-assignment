@@ -15,8 +15,8 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainPageView.didLoad()
-        networkingRequest()
+        self.networkingRequest()
+        self.mainPageView.didLoad()
     }
     
     init(mainPageView: MainPageViewProtocol){
@@ -32,13 +32,12 @@ class MainPageViewController: UIViewController {
         view = mainPageView
     }
     
-    private func networkingRequest(){
+    func networkingRequest(){
         let urlString = "https://www.avito.st/s/interns-ios/main-page.json"
         networkDataFetcher.fetchData(urlString: urlString) { (ads) in
             guard let ads = ads else {return}
             self.advertisements = ads
             self.mainPageView.reloadData()
-            print(self.advertisements)
         }
     }
     
@@ -46,7 +45,7 @@ class MainPageViewController: UIViewController {
 
 extension MainPageViewController: MainPageViewControllerDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        advertisements?.advertisements.count ?? 0
+        return advertisements?.advertisements.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,6 +53,10 @@ extension MainPageViewController: MainPageViewControllerDelegate{
         guard let item = advertisements?.advertisements[indexPath.item] else {return UICollectionViewCell()}
         cell.setup(item: item)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: view.frame.width / 2 - 5, height: 200)
     }
     
     
