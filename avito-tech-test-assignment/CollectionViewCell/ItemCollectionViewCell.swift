@@ -16,13 +16,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private let location = UILabel()
     private let date = UILabel()
     private let dateFormatter = DateFormatter()
+    var delegate: MainPageViewControllerDelegate!
     
     override var isSelected: Bool{
             didSet{
                 UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
                     self.transform = self.isSelected ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
                 }, completion: nil)
-
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.transform = self.isSelected ? CGAffineTransform(scaleX: 1, y: 1) : CGAffineTransform.identity
+                }, completion: nil)
             }
         }
     

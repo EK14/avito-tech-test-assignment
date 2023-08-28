@@ -52,6 +52,7 @@ extension MainPageViewController: MainPageViewControllerDelegate{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ItemCollectionViewCell
         guard let item = advertisements?.advertisements[indexPath.item] else {return UICollectionViewCell()}
+        cell.delegate = self
         cell.setup(item: item)
         return cell
     }
@@ -61,7 +62,13 @@ extension MainPageViewController: MainPageViewControllerDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        if let item = advertisements?.advertisements[indexPath.item]{
+            itemCardViewController.ID = item.id
+            self.navigationController?.pushViewController(self.itemCardViewController, animated: true)
+        } else {
+            print("error")
+            
+        }
     }
     
 }

@@ -10,11 +10,12 @@ import UIKit
 class ItemCardViewController: UIViewController {
     
     private let itemCardView: ItemCardViewProtocol
+    var ID = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
     }
     
     init(itemCardView: ItemCardViewProtocol){
