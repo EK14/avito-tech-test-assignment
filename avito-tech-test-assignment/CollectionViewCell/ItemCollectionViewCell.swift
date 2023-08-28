@@ -18,13 +18,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     func setupImageView(url: String){
         img.sd_setImage(with: URL(string: url))
+        img.layer.cornerRadius = 15
+        img.clipsToBounds = true
         contentView.addSubview(img)
         img.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             img.topAnchor.constraint(equalTo: contentView.topAnchor),
             img.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             img.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            img.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            img.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2 - 15)
         ])
     }
 }
