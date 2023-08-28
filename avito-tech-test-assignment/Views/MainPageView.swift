@@ -20,7 +20,7 @@ class MainPageView: UIView {
     private func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

@@ -11,7 +11,8 @@ class MainPageViewController: UIViewController {
     
     private let mainPageView: MainPageViewProtocol
     private let networkDataFetcher = NetworkDataFetcher()
-    var advertisements: Advertisements? = nil
+    private var advertisements: Advertisements? = nil
+    private let itemCardViewController = ItemCardViewControllerAssembly().create()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,10 @@ extension MainPageViewController: MainPageViewControllerDelegate{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
     }
     
 }

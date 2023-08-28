@@ -17,6 +17,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private let date = UILabel()
     private let dateFormatter = DateFormatter()
     
+    override var isSelected: Bool{
+            didSet{
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.transform = self.isSelected ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
+                }, completion: nil)
+
+            }
+        }
+    
     func setup(item: Item){
         setupImageView(url: item.image_url)
         setupTitle(title: item.title)
@@ -75,7 +84,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     private func setupLocation(location: String){
         self.location.text = location
-        self.location.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        self.location.font = UIFont.systemFont(ofSize: 12, weight: .light)
         self.location.translatesAutoresizingMaskIntoConstraints = false
         self.location.textAlignment = .left
         contentView.addSubview(self.location)
@@ -89,7 +98,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private func setupDate(date: String){
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
         self.date.text = dateFormatter.date(from: date)?.toRusString
-        self.date.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        self.date.font = UIFont.systemFont(ofSize: 12, weight: .light)
         self.date.translatesAutoresizingMaskIntoConstraints = false
         self.date.textAlignment = .left
         contentView.addSubview(self.date)
