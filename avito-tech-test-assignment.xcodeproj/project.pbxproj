@@ -27,6 +27,7 @@
 		3D9686A22A9CDDD600B1D45F /* ItemCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9686A12A9CDDD600B1D45F /* ItemCardViewController.swift */; };
 		3D9686A42A9CDDEA00B1D45F /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9686A32A9CDDEA00B1D45F /* ItemCardView.swift */; };
 		3D9686A62A9CDFFD00B1D45F /* ItemCardViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9686A52A9CDFFD00B1D45F /* ItemCardViewControllerDelegate.swift */; };
+		3D9686A82A9CFDF700B1D45F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9686A72A9CFDF700B1D45F /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		3D9686A12A9CDDD600B1D45F /* ItemCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardViewController.swift; sourceTree = "<group>"; };
 		3D9686A32A9CDDEA00B1D45F /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
 		3D9686A52A9CDFFD00B1D45F /* ItemCardViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardViewControllerDelegate.swift; sourceTree = "<group>"; };
+		3D9686A72A9CFDF700B1D45F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../../../../Documents/Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				3D9686912A9BA18000B1D45F /* Item.swift */,
 				3D9686932A9BA99800B1D45F /* Advertisements.swift */,
+				3D9686A72A9CFDF700B1D45F /* Card.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				3D96868F2A9B987F00B1D45F /* NetworkService.swift in Sources */,
 				3D9686A42A9CDDEA00B1D45F /* ItemCardView.swift in Sources */,
 				3D9686962A9BC86D00B1D45F /* NetworkDataFetcher.swift in Sources */,
+				3D9686A82A9CFDF700B1D45F /* Card.swift in Sources */,
 				3D9686A02A9CDD4900B1D45F /* ItemCardViewControllerAssembly.swift in Sources */,
 				3D8E32CB2A9B87C80064DFFC /* MainPageViewControllerDelegate.swift in Sources */,
 				3D8E32B12A98D94D0064DFFC /* MainPageViewController.swift in Sources */,
