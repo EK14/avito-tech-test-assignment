@@ -10,12 +10,12 @@ import Foundation
 class NetworkDataFetcher{
     let networkService = NetworkService()
     
-    func fetchData(urlString: String, response: @escaping (Advertisements?) -> Void){
+    func fetchData<T: Decodable>(urlString: String, response: @escaping (T?) -> Void){
         networkService.request(urlString: urlString) { (result) in
             switch result{
             case .success(let data):
                 do{
-                    let items = try JSONDecoder().decode(Advertisements.self, from: data)
+                    let items = try JSONDecoder().decode(T.self, from: data)
                     response(items)
                 }
                 catch let jsonError {

@@ -35,7 +35,7 @@ class MainPageViewController: UIViewController {
     
     func networkingRequest(){
         let urlString = "https://www.avito.st/s/interns-ios/main-page.json"
-        networkDataFetcher.fetchData(urlString: urlString) { (ads) in
+        networkDataFetcher.fetchData(urlString: urlString) { (ads: Advertisements?) in
             guard let ads = ads else {return}
             self.advertisements = ads
             self.mainPageView.reloadData()
@@ -64,6 +64,7 @@ extension MainPageViewController: MainPageViewControllerDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let item = advertisements?.advertisements[indexPath.item]{
             itemCardViewController.ID = item.id
+            itemCardViewController.setup()
             self.navigationController?.pushViewController(self.itemCardViewController, animated: true)
         } else {
             print("error")

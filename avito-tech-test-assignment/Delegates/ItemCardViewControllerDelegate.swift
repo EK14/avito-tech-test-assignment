@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol ItemCardViewControllerDelegate: AnyObject{
-    
+    func setup()
 }

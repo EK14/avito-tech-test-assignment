@@ -10,6 +10,8 @@ import UIKit
 class ItemCardViewController: UIViewController {
     
     private let itemCardView: ItemCardViewProtocol
+    private let networkDataFetcher = NetworkDataFetcher()
+    private var card: Card? = nil
     var ID = String()
 
     override func viewDidLoad() {
@@ -30,8 +32,19 @@ class ItemCardViewController: UIViewController {
         view = itemCardView
     }
     
+    func networkingRequest(){
+        let urlString = "https://www.avito.st/s/interns-ios/details/\(ID).json"
+        networkDataFetcher.fetchData(urlString: urlString) { (card: Card?) in
+            guard let card = card else {return}
+            self.card = card
+            print(self.card)
+        }
+    }
+    
 }
 
 extension ItemCardViewController: ItemCardViewControllerDelegate{
-    
+    func setup(){
+        networkingRequest()
+    }
 }
