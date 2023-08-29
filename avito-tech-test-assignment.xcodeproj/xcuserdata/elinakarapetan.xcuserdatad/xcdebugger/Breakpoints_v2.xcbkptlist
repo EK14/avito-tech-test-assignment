@@ -21,7 +21,7 @@
             <Locations>
                <Location
                   uuid = "56587D88-460C-4DE8-8273-73B56ADB349A - 6d36009004a66b33"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in avito_tech_test_assignment.Service.getNews() -&gt; ()"
@@ -36,7 +36,7 @@
                </Location>
                <Location
                   uuid = "56587D88-460C-4DE8-8273-73B56ADB349A - 6d36009004a66b33"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in avito_tech_test_assignment.Service.getNews() -&gt; ()"
@@ -133,7 +133,7 @@
             <Locations>
                <Location
                   uuid = "805F6A1A-84C4-40E8-BA18-2A8DF1ACCE66 - 8c93f66b7acd1d05"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "avito_tech_test_assignment.MainPageViewController.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
@@ -148,7 +148,7 @@
                </Location>
                <Location
                   uuid = "805F6A1A-84C4-40E8-BA18-2A8DF1ACCE66 - 8c93f66b7acd1d22"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "avito_tech_test_assignment.MainPageViewController.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
@@ -241,6 +241,38 @@
             startingLineNumber = "15"
             endingLineNumber = "15"
             landmarkName = "create(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E09F3CD8-3F3D-41A3-A186-A1F82DBC9DBE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "avito-tech-test-assignment/Controllers/ItemCardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "networkingRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7ECBF15F-9073-4CF3-91EB-7B21BCC9BAD9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "avito-tech-test-assignment/Controllers/ItemCardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

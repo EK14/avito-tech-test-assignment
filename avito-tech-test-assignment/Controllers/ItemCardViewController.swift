@@ -16,7 +16,6 @@ class ItemCardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemCardView.setupItemCardView()
     }
     
     init(itemCardView: ItemCardViewProtocol){
@@ -32,15 +31,14 @@ class ItemCardViewController: UIViewController {
         view = itemCardView
     }
     
-    func networkingRequest(){
+    private func networkingRequest(){
         let urlString = "https://www.avito.st/s/interns-ios/details/\(ID).json"
         networkDataFetcher.fetchData(urlString: urlString) { (card: Card?) in
             guard let card = card else {return}
             self.card = card
-            print(self.card)
+            self.itemCardView.setupItemCardView(card: self.card)
         }
     }
-    
 }
 
 extension ItemCardViewController: ItemCardViewControllerDelegate{

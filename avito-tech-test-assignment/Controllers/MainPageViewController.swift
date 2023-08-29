@@ -68,8 +68,6 @@ extension MainPageViewController: MainPageViewControllerDelegate{
             self.navigationController?.pushViewController(self.itemCardViewController, animated: true)
         } else {
             print("error")
-            
         }
     }
-    
 }
