@@ -27,11 +27,11 @@ class ItemCardView: UIView {
     private let dateFormatter = DateFormatter()
     private var date = UILabel()
     private let callBtn = UIButton()
-    private let writeBtn = UIButton()
+    private let emailBtn = UIButton()
     private var callBtnTitle = UILabel()
-    private let telephone = UILabel()
-    private let writeBtnTitle = UILabel()
-    private let email = UILabel()
+    private var phone = UILabel()
+    private var emailBtnTitle = UILabel()
+    private var email = UILabel()
     
     private func setupImage(){
         guard let url = card?.image_url else {return}
@@ -77,7 +77,7 @@ class ItemCardView: UIView {
         addSubview(self.location)
         addSubview(self.address)
         NSLayoutConstraint.activate([
-            self.location.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 5),
+            self.location.topAnchor.constraint(equalTo: callBtn.bottomAnchor, constant: 20),
             self.location.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             self.location.trailingAnchor.constraint(equalTo: trailingAnchor),
             
@@ -123,12 +123,15 @@ class ItemCardView: UIView {
             self.date.topAnchor.constraint(equalTo: adNumber.bottomAnchor),
             self.date.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             self.date.trailingAnchor.constraint(equalTo: trailingAnchor),
+            self.date.bottomAnchor.constraint(equalTo: bottomAnchor)
         
         ])
     }
     
     private func setupButtons(){
-        //Call button setup
+        guard let phone  = card?.phone_number else {return}
+        guard let email  = card?.email else {return}
+        //CallMe button setup
         callBtn.backgroundColor = UIColor(named: "green")
         callBtn.titleLabel?.textAlignment = .center
         callBtn.layer.cornerRadius = 20
@@ -136,17 +139,42 @@ class ItemCardView: UIView {
         callBtn.translatesAutoresizingMaskIntoConstraints = false
         
         tools.setupUILabel(label: &callBtnTitle, title: "Позвонить", fontSize: 16, weight: .regular, textColor: .white)
+        tools.setupUILabel(label: &self.phone, title: phone, fontSize: 12, weight: .regular, textColor: .white)
         callBtn.addSubview(callBtnTitle)
+        callBtn.addSubview(self.phone)
         addSubview(callBtn)
         NSLayoutConstraint.activate([
             callBtn.widthAnchor.constraint(equalToConstant: (frame.width - 40) / 2),
             callBtn.heightAnchor.constraint(equalToConstant: 40),
             callBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            callBtn.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 20),
-            callBtn.bottomAnchor.constraint(equalTo: bottomAnchor),
+            callBtn.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20),
             
             callBtnTitle.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor),
+            self.phone.topAnchor.constraint(equalTo: callBtnTitle.bottomAnchor),
+            self.phone.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor)
+        ])
+        
+        //EmailMe button setup
+        emailBtn.backgroundColor = UIColor(named: "blue")
+        emailBtn.titleLabel?.textAlignment = .center
+        emailBtn.layer.cornerRadius = 20
+        emailBtn.clipsToBounds = true
+        emailBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        tools.setupUILabel(label: &emailBtnTitle, title: "Написать", fontSize: 16, weight: .regular, textColor: .white)
+        tools.setupUILabel(label: &self.email, title: email, fontSize: 12, weight: .regular, textColor: .white)
+        emailBtn.addSubview(emailBtnTitle)
+        emailBtn.addSubview(self.email)
+        addSubview(emailBtn)
+        NSLayoutConstraint.activate([
+            emailBtn.widthAnchor.constraint(equalToConstant: (frame.width - 40) / 2),
+            emailBtn.heightAnchor.constraint(equalToConstant: 40),
+            emailBtn.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            emailBtn.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20),
             
+            emailBtnTitle.centerXAnchor.constraint(equalTo: emailBtn.centerXAnchor),
+            self.email.topAnchor.constraint(equalTo: emailBtnTitle.bottomAnchor),
+            self.email.centerXAnchor.constraint(equalTo: emailBtn.centerXAnchor)
         ])
     }
 
@@ -160,10 +188,10 @@ extension ItemCardView: ItemCardViewProtocol{
             setupImage()
             setupPrice()
             setupTitle()
+            setupButtons()
             setupAddress()
             setupDescription()
             setupDateAndID()
-            setupButtons()
         } else{
             print("item didnt load")
         }
