@@ -22,7 +22,7 @@ class NetworkDataFetcher{
                     print("Failed to decode JSON", jsonError)
                     response(nil)
                 }
-            case .failure(let error):
+            case .failure(_):
                 response(nil)
             }
         }

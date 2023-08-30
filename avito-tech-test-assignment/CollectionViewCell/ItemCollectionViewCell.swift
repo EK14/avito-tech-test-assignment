@@ -11,11 +11,12 @@ import SDWebImage
 class ItemCollectionViewCell: UICollectionViewCell {
 
     private let img = UIImageView()
-    private let title = UILabel()
-    private let price = UILabel()
-    private let location = UILabel()
-    private let date = UILabel()
+    private var title = UILabel()
+    private var price = UILabel()
+    private var location = UILabel()
+    private var date = UILabel()
     private let dateFormatter = DateFormatter()
+    private let tool = Tools()
     var delegate: MainPageViewControllerDelegate!
     
     override var isSelected: Bool{
@@ -60,10 +61,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupTitle(title: String){
-        self.title.text = title
-        self.title.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        self.title.translatesAutoresizingMaskIntoConstraints = false
-        self.title.textAlignment = .left
+        tool.setupUILabel(label: &self.title, title: title, fontSize: 16, weight: .regular, numberOfLines: 1)
         contentView.addSubview(self.title)
         NSLayoutConstraint.activate([
             self.title.topAnchor.constraint(equalTo: img.bottomAnchor, constant: 10),
@@ -73,10 +71,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupPrice(price: String){
-        self.price.text = price
-        self.price.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        self.price.translatesAutoresizingMaskIntoConstraints = false
-        self.price.textAlignment = .left
+        tool.setupUILabel(label: &self.price, title: price, fontSize: 16, weight: .bold)
         contentView.addSubview(self.price)
         NSLayoutConstraint.activate([
             self.price.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 5),
@@ -86,10 +81,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLocation(location: String){
-        self.location.text = location
-        self.location.font = UIFont.systemFont(ofSize: 12, weight: .light)
-        self.location.translatesAutoresizingMaskIntoConstraints = false
-        self.location.textAlignment = .left
+        tool.setupUILabel(label: &self.location, title: location, fontSize: 12, weight: .regular, textColor: .gray)
         contentView.addSubview(self.location)
         NSLayoutConstraint.activate([
             self.location.topAnchor.constraint(equalTo: price.bottomAnchor, constant: 5),
@@ -100,10 +92,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     private func setupDate(date: String){
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
-        self.date.text = dateFormatter.date(from: date)?.toRusString
-        self.date.font = UIFont.systemFont(ofSize: 12, weight: .light)
-        self.date.translatesAutoresizingMaskIntoConstraints = false
-        self.date.textAlignment = .left
+        guard let title = dateFormatter.date(from: date)?.toRusString else {return}
+        tool.setupUILabel(label: &self.date, title: title, fontSize: 12, weight: .regular, textColor: .gray)
         contentView.addSubview(self.date)
         NSLayoutConstraint.activate([
             self.date.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 5),
