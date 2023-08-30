@@ -9,6 +9,7 @@ import UIKit
 
 class ItemCardViewController: UIViewController {
     
+    private let scrollView = UIScrollView()
     private let itemCardView: ItemCardViewProtocol
     private let networkDataFetcher = NetworkDataFetcher()
     private var card: Card? = nil

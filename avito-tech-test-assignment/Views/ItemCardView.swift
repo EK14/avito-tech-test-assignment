@@ -26,6 +26,12 @@ class ItemCardView: UIView {
     private var adNumber = UILabel()
     private let dateFormatter = DateFormatter()
     private var date = UILabel()
+    private let callBtn = UIButton()
+    private let writeBtn = UIButton()
+    private var callBtnTitle = UILabel()
+    private let telephone = UILabel()
+    private let writeBtnTitle = UILabel()
+    private let email = UILabel()
     
     private func setupImage(){
         guard let url = card?.image_url else {return}
@@ -120,6 +126,27 @@ class ItemCardView: UIView {
         
         ])
     }
+    
+    private func setupButtons(){
+        //Call button setup
+        callBtn.backgroundColor = UIColor(named: "green")
+        callBtn.titleLabel?.textAlignment = .center
+        callBtn.layer.cornerRadius = 20
+        callBtn.clipsToBounds = true
+        callBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        tools.setupUILabel(label: &callBtnTitle, title: "Позвонить", fontSize: 16, weight: .regular, textColor: .white)
+        callBtn.addSubview(callBtnTitle)
+        addSubview(callBtn)
+        NSLayoutConstraint.activate([
+            callBtn.widthAnchor.constraint(equalToConstant: (frame.width - 40) / 2),
+            callBtn.heightAnchor.constraint(equalToConstant: 40),
+            callBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            callBtn.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 20),
+            
+            callBtnTitle.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor)
+        ])
+    }
 
 }
 
@@ -134,6 +161,7 @@ extension ItemCardView: ItemCardViewProtocol{
             setupAddress()
             setupDescription()
             setupDateAndID()
+            setupButtons()
         } else{
             print("item didnt load")
         }
