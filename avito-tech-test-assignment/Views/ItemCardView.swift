@@ -40,8 +40,8 @@ class ItemCardView: UIView {
         img.translatesAutoresizingMaskIntoConstraints = false
         addSubview(img)
         NSLayoutConstraint.activate([
-            img.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            img.heightAnchor.constraint(equalToConstant: frame.height / 2),
+            img.topAnchor.constraint(equalTo: topAnchor),
+            img.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2),
             img.leadingAnchor.constraint(equalTo: leadingAnchor),
             img.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
@@ -143,8 +143,10 @@ class ItemCardView: UIView {
             callBtn.heightAnchor.constraint(equalToConstant: 40),
             callBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             callBtn.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 20),
+            callBtn.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            callBtnTitle.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor)
+            callBtnTitle.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor),
+            
         ])
     }
 
