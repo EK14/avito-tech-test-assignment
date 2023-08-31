@@ -10,4 +10,5 @@ import UIKit
 
 protocol ItemCardViewControllerDelegate: AnyObject{
     func setup()
+    func requestErrorAlert(error: String)
 }

@@ -13,6 +13,8 @@ class MainPageViewController: UIViewController {
     private let networkDataFetcher = NetworkDataFetcher()
     private var advertisements: Advertisements? = nil
     private let itemCardViewController = ItemCardViewControllerAssembly().create()
+    private let errorAlert = UIAlertController(title: "Error", message: "", preferredStyle: .alert)
+    private let okBtn = UIAlertAction(title: "OK", style: .default)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,8 @@ class MainPageViewController: UIViewController {
     init(mainPageView: MainPageViewProtocol){
         self.mainPageView = mainPageView
         super.init(nibName: nil, bundle: nil)
+        networkDataFetcher.mainPageDelegate = self
+        errorAlert.addAction(okBtn)
     }
     
     required init?(coder: NSCoder) {
@@ -35,8 +39,12 @@ class MainPageViewController: UIViewController {
     
     func networkingRequest(){
         let urlString = "https://www.avito.st/s/interns-ios/main-page.json"
-        networkDataFetcher.fetchData(urlString: urlString) { (ads: Advertisements?) in
-            guard let ads = ads else {return}
+        networkDataFetcher.fetchData(urlString: urlString) { (ads: Advertisements?, error: String?) in
+            guard let ads = ads
+            else {
+                self.requestErrorAlert(error: error ?? "error description unfound")
+                return
+            }
             self.advertisements = ads
             self.mainPageView.reloadData()
         }
@@ -45,6 +53,7 @@ class MainPageViewController: UIViewController {
 }
 
 extension MainPageViewController: MainPageViewControllerDelegate{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return advertisements?.advertisements.count ?? 0
     }
@@ -61,6 +70,10 @@ extension MainPageViewController: MainPageViewControllerDelegate{
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: UIScreen.main.bounds.width / 2 - 20, height: (UIScreen.main.bounds.width / 2 - 20) * 1.7)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let item = advertisements?.advertisements[indexPath.item]{
             itemCardViewController.ID = item.id
@@ -69,5 +82,10 @@ extension MainPageViewController: MainPageViewControllerDelegate{
         } else {
             print("error")
         }
+    }
+    
+    func requestErrorAlert(error: String){
+        errorAlert.title = error
+        self.present(errorAlert, animated: true)
     }
 }

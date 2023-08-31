@@ -43,7 +43,7 @@ class ItemCardView: UIView {
             img.topAnchor.constraint(equalTo: topAnchor),
             img.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2),
             img.leadingAnchor.constraint(equalTo: leadingAnchor),
-            img.trailingAnchor.constraint(equalTo: trailingAnchor)
+            img.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
     

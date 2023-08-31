@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol MainPageViewControllerDelegate: AnyObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
+    func requestErrorAlert(error: String)
 }

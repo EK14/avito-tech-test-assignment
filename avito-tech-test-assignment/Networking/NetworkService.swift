@@ -14,7 +14,6 @@ class NetworkService{
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    print("Some error")
                     completion(.failure(error))
                 }
                 guard let data = data else {return}

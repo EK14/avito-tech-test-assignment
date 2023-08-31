@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D72C3612A9F2CC100BAD633 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C3602A9F2CC100BAD633 /* Tools.swift */; };
+		3D72C3642AA06E4D00BAD633 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C3632AA06E4D00BAD633 /* AnimationViewController.swift */; };
+		3D72C3892AA0B88300BAD633 /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C3882AA0B88300BAD633 /* ErrorAlertController.swift */; };
 		3D8E32AD2A98D94D0064DFFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E32AC2A98D94D0064DFFC /* AppDelegate.swift */; };
 		3D8E32AF2A98D94D0064DFFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E32AE2A98D94D0064DFFC /* SceneDelegate.swift */; };
 		3D8E32B12A98D94D0064DFFC /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E32B02A98D94D0064DFFC /* MainPageViewController.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		3D72C3602A9F2CC100BAD633 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		3D72C3632AA06E4D00BAD633 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		3D72C3882AA0B88300BAD633 /* ErrorAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertController.swift; sourceTree = "<group>"; };
 		3D8E32A92A98D94D0064DFFC /* avito-tech-test-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "avito-tech-test-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8E32AC2A98D94D0064DFFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8E32AE2A98D94D0064DFFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D72C3622AA06E3600BAD633 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3D72C3632AA06E4D00BAD633 /* AnimationViewController.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		3D72C3872AA0B85F00BAD633 /* Error Alert */ = {
+			isa = PBXGroup;
+			children = (
+				3D72C3882AA0B88300BAD633 /* ErrorAlertController.swift */,
+			);
+			path = "Error Alert";
+			sourceTree = "<group>";
+		};
 		3D8E32A02A98D94D0064DFFC = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +108,8 @@
 		3D8E32AB2A98D94D0064DFFC /* avito-tech-test-assignment */ = {
 			isa = PBXGroup;
 			children = (
+				3D72C3872AA0B85F00BAD633 /* Error Alert */,
+				3D72C3622AA06E3600BAD633 /* Animation */,
 				3D96869C2A9C95C200B1D45F /* Extentions and Tools */,
 				3D9686902A9BA13A00B1D45F /* Models */,
 				3D8E32C42A9B85510064DFFC /* Views */,
@@ -282,8 +304,10 @@
 				3D8E32B12A98D94D0064DFFC /* MainPageViewController.swift in Sources */,
 				3D9686A22A9CDDD600B1D45F /* ItemCardViewController.swift in Sources */,
 				3D8E32C82A9B86870064DFFC /* MainPageView.swift in Sources */,
+				3D72C3642AA06E4D00BAD633 /* AnimationViewController.swift in Sources */,
 				3D96869E2A9C95D900B1D45F /* Date.swift in Sources */,
 				3D8E32AD2A98D94D0064DFFC /* AppDelegate.swift in Sources */,
+				3D72C3892AA0B88300BAD633 /* ErrorAlertController.swift in Sources */,
 				3D9686942A9BA99800B1D45F /* Advertisements.swift in Sources */,
 				3D72C3612A9F2CC100BAD633 /* Tools.swift in Sources */,
 				3D8E32AF2A98D94D0064DFFC /* SceneDelegate.swift in Sources */,

@@ -11,6 +11,7 @@ import SDWebImage
 class ItemCollectionViewCell: UICollectionViewCell {
 
     private let img = UIImageView()
+    private let animation = AnimationViewController()
     private var title = UILabel()
     private var price = UILabel()
     private var location = UILabel()
@@ -31,11 +32,32 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
     
     func setup(item: Item){
+        setupAnimation()
         setupImageView(url: item.image_url)
         setupTitle(title: item.title)
         setupPrice(price: item.price)
         setupLocation(location: item.location)
         setupDate(date: item.created_date)
+    }
+    
+    private func setupAnimation(){
+        animation.view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(animation.view)
+        
+        let imgWidth = animation.view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2 - 20)
+        imgWidth.priority = UILayoutPriority(rawValue: 999)
+        
+        let imgHeight = animation.view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2 - 20)
+        imgHeight.priority = UILayoutPriority(rawValue: 999)
+        
+        NSLayoutConstraint.activate([
+            animation.view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            animation.view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            animation.view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imgWidth,
+            imgHeight
+        ])
+        
     }
     
     private func setupImageView(url: String){
@@ -61,7 +83,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupTitle(title: String){
-        tools.setupUILabel(label: &self.title, title: title, fontSize: 16, weight: .regular, numberOfLines: 1)
+        tools.setupUILabel(label: &self.title, title: title, fontSize: 16, weight: .regular)
         contentView.addSubview(self.title)
         NSLayoutConstraint.activate([
             self.title.topAnchor.constraint(equalTo: img.bottomAnchor, constant: 10),
@@ -101,7 +123,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
             self.date.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 5),
             self.date.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             self.date.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            self.date.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }
