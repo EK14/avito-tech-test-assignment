@@ -16,7 +16,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private var location = UILabel()
     private var date = UILabel()
     private let dateFormatter = DateFormatter()
-    private let tool = Tools()
+    private let tools = Tools()
     var delegate: MainPageViewControllerDelegate!
     
     override var isSelected: Bool{
@@ -61,7 +61,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupTitle(title: String){
-        tool.setupUILabel(label: &self.title, title: title, fontSize: 16, weight: .regular, numberOfLines: 1)
+        tools.setupUILabel(label: &self.title, title: title, fontSize: 16, weight: .regular, numberOfLines: 1)
         contentView.addSubview(self.title)
         NSLayoutConstraint.activate([
             self.title.topAnchor.constraint(equalTo: img.bottomAnchor, constant: 10),
@@ -70,8 +70,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    private func setupPrice(price: String){
-        tool.setupUILabel(label: &self.price, title: price, fontSize: 16, weight: .bold)
+    private func setupPrice(price: String?){
+        guard var priceText = price else {return}
+        tools.setupPrice(price: &priceText)
+        tools.setupUILabel(label: &self.price, title: priceText, fontSize: 16, weight: .bold)
         contentView.addSubview(self.price)
         NSLayoutConstraint.activate([
             self.price.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 5),
@@ -81,7 +83,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLocation(location: String){
-        tool.setupUILabel(label: &self.location, title: location, fontSize: 12, weight: .regular, textColor: .gray)
+        tools.setupUILabel(label: &self.location, title: location, fontSize: 12, weight: .regular, textColor: .gray)
         contentView.addSubview(self.location)
         NSLayoutConstraint.activate([
             self.location.topAnchor.constraint(equalTo: price.bottomAnchor, constant: 5),
@@ -93,7 +95,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private func setupDate(date: String){
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
         guard let title = dateFormatter.date(from: date)?.toRusString else {return}
-        tool.setupUILabel(label: &self.date, title: title, fontSize: 12, weight: .regular, textColor: .gray)
+        tools.setupUILabel(label: &self.date, title: title, fontSize: 12, weight: .regular, textColor: .gray)
         contentView.addSubview(self.date)
         NSLayoutConstraint.activate([
             self.date.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 5),

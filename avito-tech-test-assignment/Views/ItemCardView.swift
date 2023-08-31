@@ -48,7 +48,8 @@ class ItemCardView: UIView {
     }
     
     private func setupPrice(){
-        guard let price = card?.price else {return}
+        guard var price = card?.price else {return}
+        tools.setupPrice(price: &price)
         tools.setupUILabel(label: &self.price, title: price, fontSize: 36, weight: .bold)
         addSubview(self.price)
         NSLayoutConstraint.activate([
@@ -134,7 +135,7 @@ class ItemCardView: UIView {
         //CallMe button setup
         callBtn.backgroundColor = UIColor(named: "green")
         callBtn.titleLabel?.textAlignment = .center
-        callBtn.layer.cornerRadius = 20
+        callBtn.layer.cornerRadius = 25
         callBtn.clipsToBounds = true
         callBtn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -145,11 +146,12 @@ class ItemCardView: UIView {
         addSubview(callBtn)
         NSLayoutConstraint.activate([
             callBtn.widthAnchor.constraint(equalToConstant: (frame.width - 40) / 2),
-            callBtn.heightAnchor.constraint(equalToConstant: 40),
+            callBtn.heightAnchor.constraint(equalToConstant: 50),
             callBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             callBtn.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20),
             
             callBtnTitle.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor),
+            callBtnTitle.topAnchor.constraint(equalTo: callBtn.topAnchor, constant: 5),
             self.phone.topAnchor.constraint(equalTo: callBtnTitle.bottomAnchor),
             self.phone.centerXAnchor.constraint(equalTo: callBtn.centerXAnchor)
         ])
@@ -157,7 +159,7 @@ class ItemCardView: UIView {
         //EmailMe button setup
         emailBtn.backgroundColor = UIColor(named: "blue")
         emailBtn.titleLabel?.textAlignment = .center
-        emailBtn.layer.cornerRadius = 20
+        emailBtn.layer.cornerRadius = 25
         emailBtn.clipsToBounds = true
         emailBtn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -168,11 +170,12 @@ class ItemCardView: UIView {
         addSubview(emailBtn)
         NSLayoutConstraint.activate([
             emailBtn.widthAnchor.constraint(equalToConstant: (frame.width - 40) / 2),
-            emailBtn.heightAnchor.constraint(equalToConstant: 40),
+            emailBtn.heightAnchor.constraint(equalToConstant: 50),
             emailBtn.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             emailBtn.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20),
             
             emailBtnTitle.centerXAnchor.constraint(equalTo: emailBtn.centerXAnchor),
+            emailBtnTitle.topAnchor.constraint(equalTo: emailBtn.topAnchor, constant: 5),
             self.email.topAnchor.constraint(equalTo: emailBtnTitle.bottomAnchor),
             self.email.centerXAnchor.constraint(equalTo: emailBtn.centerXAnchor)
         ])

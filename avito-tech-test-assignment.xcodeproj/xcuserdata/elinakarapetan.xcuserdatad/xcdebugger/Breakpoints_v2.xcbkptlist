@@ -286,8 +286,8 @@
             filePath = "avito-tech-test-assignment/Views/ItemCardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "setupPrice()"
             landmarkType = "7">
          </BreakpointContent>
@@ -296,22 +296,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DD3B5E6F-3640-42EB-901E-FC6BAADFD8EA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "avito-tech-test-assignment/Views/ItemCardView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "setupPrice()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5DB05867-4984-4434-A1FF-FE3D2E87D7EB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -327,7 +311,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D49D2F73-5A97-4452-B9B1-99E3ABE8B449"
+            uuid = "5DB05867-4984-4434-A1FF-FE3D2E87D7EB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -343,6 +327,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "D49D2F73-5A97-4452-B9B1-99E3ABE8B449"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "avito-tech-test-assignment/Views/ItemCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "setupPrice()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "63042454-4AD9-4253-9EC0-C625C34700D8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -350,8 +350,8 @@
             filePath = "avito-tech-test-assignment/Views/ItemCardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "setupPrice()"
             landmarkType = "7">
             <Locations>
@@ -384,6 +384,54 @@
                   startingLineNumber = "49"
                   endingLineNumber = "49"
                   offsetFromSymbolStart = "1004">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C62B65F7-CA71-4793-B4D7-57CF5EFE083A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "avito-tech-test-assignment/CollectionViewCell/ItemCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "setupPrice(price:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C62B65F7-CA71-4793-B4D7-57CF5EFE083A - 8b9d01933660378a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "avito_tech_test_assignment.ItemCollectionViewCell.setupPrice(price: Swift.String) -&gt; ()"
+                  moduleName = "avito-tech-test-assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/avito-tech-test-assignment/avito-tech-test-assignment/CollectionViewCell/ItemCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "C62B65F7-CA71-4793-B4D7-57CF5EFE083A - 8b9d0193366037e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "avito_tech_test_assignment.ItemCollectionViewCell.setupPrice(price: Swift.String) -&gt; ()"
+                  moduleName = "avito-tech-test-assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/avito-tech-test-assignment/avito-tech-test-assignment/CollectionViewCell/ItemCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
          </BreakpointContent>
